@@ -104,9 +104,13 @@ class DataTablesComponent extends Component
      * @param array $options
      * @return array|\Cake\ORM\Query
      */
-    public function find($tableName, $finder = 'all', array $options = [])
+    public function find($tableName, array $options = [])
     {
-
+        // -- set default option values
+        $options += ['finder' => 'all'];
+        $finder = $options['finder'];
+        unset($options['finder']);
+    
         // -- get table object
         $table = TableRegistry::get($tableName);
         $this->_tableName = $table->alias();

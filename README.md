@@ -89,6 +89,15 @@ Use it simply like find:
 The array_merge is required because the component add multiple vars to view like recordsTotal, recordsFiltered, ...
 So your serialized data were added to this vars.
 
+A custom finder can be used by including 'finder' in the options array of your DataTables->find() method:
+
+    $data = $this->DataTables->find('*TABLE*', [
+        'contain' => [],
+        'finder' => '*CUSTOM FINDER NAME*'
+    ]);
+    
+By default, the 'all' finder will be used.
+
 
 ### Step 5: Template / View
 
